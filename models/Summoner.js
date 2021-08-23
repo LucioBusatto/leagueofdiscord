@@ -9,6 +9,7 @@ class Summoner {
   iconID;
 
   ranking;
+  champions;
 
   constructor(messageInput) {
     this.parseSummonerFromMessage(messageInput);
@@ -21,6 +22,7 @@ class Summoner {
   async init() {
     await this.fetchSummoner();
     await this.fetchSummonerLeague();
+    await this.fetchSummonerChampions();
 
     return this;
   }
@@ -77,6 +79,18 @@ class Summoner {
       throw new Error("Something went wrong");
     }
   }
+  async fetchSummonerChampions() {
+    try {
+      const { data } = await axios.get(
+          `https://${this.region}.api.riotgames.com/lol/champion-mastery/v4/champion-masteries/by-summoner/${this.id}?api_key=${apiKey}`
+      );
+      this.champions = data.slice(0, 3);
+    } catch (err) {
+      console.log(err);
+      throw new Error("Something went wrong");
+    }
+  }
+
 }
 
 module.exports = Summoner;
