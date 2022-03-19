@@ -1,6 +1,6 @@
 import {batin} from "./batin";
-import {commandList} from "./comandos";
+import {commandList} from "./comandList";
 import {serverList} from "./serverList";
-import {test} from "./test";
+import {me} from "./me";
 
-export const commands: any = [test, batin, serverList, commandList]
+export const commands: any = [me, batin, serverList, commandList]

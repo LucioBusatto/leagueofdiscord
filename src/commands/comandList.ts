@@ -4,13 +4,13 @@ import {Command} from "../models/Command";
 
 export const commandList : Command = {
     name: "commands",
-    alias: ["comandos","commands","list","command","comando","commandos"],
+    alias: ["comandos","commands","commandList","command","comando","commandos"],
     description: "Commands List",
     action: (client:Client, message:any) => {
         const embed = new Discord.MessageEmbed() .setTitle('COMANDOS - KEY: !')
-        .addField('comandos', 'listado de comandos')
-        .addField('me', 'muestra el perfil de un invocador, el formato es (prefijo)me serverCode nombre de invocador (ex: !me la2 batin)')
-        .addField('serverList', 'Muestra la lista de codigos de servidores')
+        .addField('commands', 'list of available commands')
+        .addField('me', "shows a summoner's profile, format should be (prefix)me serverCode (see in !serverList) summonerName (ex: !me la2 batin)")
+        .addField('serverList', 'Show the list of server codes')
         return message.channel.send(embed);
     }
 }

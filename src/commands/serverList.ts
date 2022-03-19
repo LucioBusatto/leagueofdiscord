@@ -3,9 +3,9 @@ import Discord from "discord.js"
 import {Command} from "../models/Command";
 
 export const serverList: Command = {
-    name: "servers",
-    alias: ["serverlist", "list"],
-    description: "Test command",
+    name: "server",
+    alias: ["servers", "list", "serverList"],
+    description: "Available servers code list",
     action: async (client:Client, message:any) => {
         const embed = new Discord.MessageEmbed()
             .setTitle("Server Code List")

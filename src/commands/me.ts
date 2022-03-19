@@ -7,10 +7,10 @@ import {Command} from "../models/Command";
 
 const axios = require("axios");
 
-export const test : Command = {
-    name: "test",
-    alias: ["summoner", "test", "me", "t"],
-    description: "Test command",
+export const me : Command = {
+    name: "me",
+    alias: ["summoner", "show", "profile"],
+    description: "Show a summoner's profile",
     action:
         async (client: Client, message: any) => {
         const {name, region} = parseSummonerFromMessage(message.content);
@@ -21,7 +21,7 @@ export const test : Command = {
             return message.channel.send(messageEmbed);
 
         }else{
-            message.channel.send("Cant find this summoner name");
+            message.channel.send("Can't find this summoner name");
         }
 
 
