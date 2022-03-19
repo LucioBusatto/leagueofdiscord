@@ -1,10 +1,12 @@
-const Discord = require("discord.js");
+import {Client} from "discord.js";
+import Discord from "discord.js"
+import {Command} from "../models/Command";
 
-module.exports = {
+export const serverList: Command = {
     name: "servers",
     alias: ["serverlist", "list"],
     description: "Test command",
-    action: async (client, message, args) => {
+    action: async (client:Client, message:any) => {
         const embed = new Discord.MessageEmbed()
             .setTitle("Server Code List")
             .addField("🇦🇷 Latin America South:", "la2")
